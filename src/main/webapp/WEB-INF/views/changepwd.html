@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>修改密码</title>
+    <link rel="stylesheet" type="text/css" href="../../resources/css/layui.css">
+    <script src="../../resources/js/jquery-3.2.1.min.js"></script>
+    <script src="../../resources/layui.js"></script>
+    <style type="text/css">
+        form {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="layui-container" style="position: relative;height: 600px;">
+        <form class="layui-form" action="">
+            <h3 style="text-align:center;font-size: 18px;padding-bottom: 20px;">修改密码</h3>
+            <div class="layui-form-item">
+                <label class="layui-form-label">原密码</label>
+                <div class="layui-input-inline">
+                    <input type="password" required lay-verify="required" placeholder="请输入原密码" autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-mid layui-word-aux"></div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">新密码</label>
+                <div class="layui-input-inline">
+                    <input type="password" required lay-verify="required" placeholder="请输入新密码" autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-mid layui-word-aux"></div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">密码确认</label>
+                <div class="layui-input-inline">
+                    <input type="password" required lay-verify="required" placeholder="请再输一次新密码" autocomplete="off" class="layui-input">
+                </div>
+                <div class="layui-form-mid layui-word-aux"></div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label"></label>
+                <div class="layui-input-inline">
+                    <div class="layui-row layui-col-space10">
+                        <div class="layui-col-md6">
+                            <button class="layui-btn" lay-submit lay-filter="formDemo" style="width: 100%;">确认修改</button>
+                        </div>
+                        <div class="layui-col-md6">
+                            <button type="button" class="layui-btn layui-btn-primary" style="width: 100%;">取消</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script type="text/javascript">
+        $(function() {
+            layui.use('form', function() {
+                var form = layui.form;
+
+                //监听提交
+                form.on('submit(formDemo)', function(data) {
+                    layer.msg(JSON.stringify(data.field));
+                    return false;
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

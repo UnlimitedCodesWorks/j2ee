@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="../../resources/css/layui.css">
+    <script src="../../resources/js/jquery-3.2.1.min.js"></script>
+    <script src="../../resources/layui.js"></script>
+    <title>上传照片</title>
+    <style type="text/css">
+        .label input {
+            margin-left: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="layui-col-md6 layui-col-md-offset4">
+        <form action="">
+            <div style="margin-top:100px;font-size:18px;font-weight:bold;">照片上传</div>
+            <div class="layui-row" style="margin-top:20px;">
+                照片描述
+                <input type="text">
+                <input type="file">
+            </div>
+            <div class="layui-row" style="margin-top:20px;">
+                照片描述
+                <input type="text">
+                <input type="file">
+            </div>
+            <div class="layui-row" style="margin-top:20px;">
+                照片描述
+                <input type="text">
+                <input type="file">
+            </div>
+            <div class="layui-row" style="margin-top:20px;">
+                照片描述
+                <input type="text">
+                <input type="file">
+            </div>
+            <div class="label" style="margin-top:20px;">
+                <div style="margin-bottom:20px;">我的标签</div>
+                <input type="checkbox" title="春天">春天
+                <input type="checkbox" title="小和山">小和山
+                <input type="checkbox" title="朋友">朋友
+                <input type="checkbox" title="西湖">西湖
+            </div>
+            <div style="margin-top:20px;">
+                图片标签<input type="text" class="labelname" style="margin-left:5px;">
+            </div>
+            <button type="submit" style="margin-top:20px;" class="layui-btn">上传图片</button>
+        </form>
+    </div>
+    <script>
+        $(function() {
+            var input = $(".label input");
+            input.change(function() {
+                document.getElementsByClassName("labelname")[0].value = "";
+                for (i = 0; i < input.length; i++) {
+                    if (input[i].checked) {
+                        document.getElementsByClassName("labelname")[0].value += input[i].title + ";";
+                    }
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>
